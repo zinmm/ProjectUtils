@@ -1,8 +1,6 @@
 package com.sunhz.projectutils.viewutils;
 
-import android.app.Activity;
 import android.content.Context;
-import android.view.WindowManager;
 
 public class DensityUtils {
 
@@ -26,9 +24,7 @@ public class DensityUtils {
 	 * 将px值转换为sp值，保证文字大小不变
 	 * 
 	 * @param pxValue
-	 * @param fontScale
 	 *            （DisplayMetrics类中属性scaledDensity）
-	 * @return
 	 */
 	public static int px2sp(Context context, float pxValue) {
 		final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
@@ -39,9 +35,7 @@ public class DensityUtils {
 	 * 将sp值转换为px值，保证文字大小不变
 	 * 
 	 * @param spValue
-	 * @param fontScale
 	 *            （DisplayMetrics类中属性scaledDensity）
-	 * @return
 	 */
 	public static int sp2px(Context context, float spValue) {
 		final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;

@@ -27,7 +27,6 @@ public class CheckInternetUtils {
 	/**
 	 * 是否飞行模式
 	 * 
-	 * @param context
 	 * @return
 	 */
 	public boolean isAirplaneModeOn() {
@@ -37,7 +36,6 @@ public class CheckInternetUtils {
 	/**
 	 * 检测是否已经连接网络。
 	 * 
-	 * @param context
 	 * @return 当且仅当连上网络时返回true,否则返回false。
 	 */
 	public boolean checkInternet() {

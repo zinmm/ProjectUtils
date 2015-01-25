@@ -1,16 +1,16 @@
 package com.sunhz.projectutils.logutils;
 
-import java.io.File;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.io.Writer;
-
 import android.content.Context;
 import android.os.Environment;
 import android.util.Log;
 
 import com.sunhz.projectutils.DebugController;
 import com.sunhz.projectutils.fileutils.FileUtils;
+
+import java.io.File;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.io.Writer;
 
 public class LogUtils {
 	private static Context mContext;
@@ -20,8 +20,6 @@ public class LogUtils {
 
 	/**
 	 * 初始化log管理器
-	 * 
-	 * @param context
 	 */
 	public static void init(Context context) {
 		mContext = context;
@@ -36,9 +34,6 @@ public class LogUtils {
 
 	/**
 	 * 保存错误信息到文件中
-	 * 
-	 * @param ex
-	 * @return
 	 */
 	public static void writeExceptionLog(Context context, Throwable ex) {
 		Writer info = new StringWriter();

@@ -1,4 +1,4 @@
-package com.sunhz.projectutils.encryption;
+package com.sunhz.projectutils.encryptionutils;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;

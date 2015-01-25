@@ -1,10 +1,5 @@
 package com.sunhz.projectutils.fileutils;
 
-/*
- * @(#)IOUtils.java		       Project:com.sinaapp.msdxblog.androidkit
- * Date:2012-5-6
- */
-
 import java.io.Closeable;
 import java.io.IOException;
 

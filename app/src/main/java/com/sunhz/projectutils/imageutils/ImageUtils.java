@@ -1,29 +1,10 @@
-package com.sunhz.projectutils.imageutil;
-
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileDescriptor;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.CoreConnectionPNames;
-
-import com.sunhz.projectutils.fileutils.FileUtils;
+package com.sunhz.projectutils.imageutils;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.ColorMatrix;
@@ -31,17 +12,25 @@ import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
+import android.graphics.PorterDuff.Mode;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import android.graphics.Bitmap.Config;
-import android.graphics.PorterDuff.Mode;
 import android.graphics.Shader.TileMode;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
+
+import com.sunhz.projectutils.fileutils.FileUtils;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileDescriptor;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 
 public class ImageUtils {
 
@@ -140,8 +129,7 @@ public class ImageUtils {
 		}
 		Matrix matrix = new Matrix();
 		matrix.postScale(density, density); // 长和宽放大缩小的比例
-		Bitmap resizeBmp = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
-		return resizeBmp;
+        return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
 	}
 
 	/**
@@ -253,8 +241,7 @@ public class ImageUtils {
 	public static InputStream BitmapTOInputStream(Bitmap bitmap) {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-		InputStream inputStream = new ByteArrayInputStream(baos.toByteArray());
-		return inputStream;
+        return new ByteArrayInputStream(baos.toByteArray());
 	}
 
 	/**
@@ -264,9 +251,8 @@ public class ImageUtils {
 	 * @return
 	 */
 	public static Drawable convertBitmap2Drawable(Bitmap bitmap) {
-		BitmapDrawable bd = new BitmapDrawable(bitmap);
-		// 因为BtimapDrawable是Drawable的子类，最终直接使用bd对象即可。
-		return bd;
+        // 因为BtimapDrawable是Drawable的子类，最终直接使用bd对象即可。
+        return new BitmapDrawable(bitmap);
 	}
 
 	/**
@@ -421,8 +407,7 @@ public class ImageUtils {
 		}
 		options.inTargetDensity = (int) density;
 		options.inJustDecodeBounds = false; // 设置了此属性一定要记得将值设置为false
-		Bitmap bitmap = BitmapFactory.decodeFile(filePath, options);
-		return bitmap;
+        return BitmapFactory.decodeFile(filePath, options);
 	}
 
 	/**
@@ -477,8 +462,7 @@ public class ImageUtils {
 			options -= 10;// 每次都减少10
 		}
 		ByteArrayInputStream isBm = new ByteArrayInputStream(baos.toByteArray());// 把压缩后的数据baos存放到ByteArrayInputStream中
-		Bitmap bitmap = BitmapFactory.decodeStream(isBm, null, null);// 把ByteArrayInputStream数据生成图片
-		return bitmap;
+        return BitmapFactory.decodeStream(isBm, null, null);// 把ByteArrayInputStream数据生成图片
 	}
 
 	/**

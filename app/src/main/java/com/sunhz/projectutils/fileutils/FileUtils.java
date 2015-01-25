@@ -1,5 +1,14 @@
 package com.sunhz.projectutils.fileutils;
 
+import android.content.Context;
+
+import com.sunhz.projectutils.logutils.LogUtils;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -34,18 +43,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
-
-import com.sunhz.projectutils.imageutil.ImageUtils;
-import com.sunhz.projectutils.logutils.LogUtils;
-
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-
 public class FileUtils {
 	/**
 	 * 写入对象。
@@ -63,7 +60,6 @@ public class FileUtils {
 	 * 写入对象。
 	 * 
 	 * @param object
-	 * @param path
 	 * @throws IOException
 	 */
 	public static void writeObject(final Serializable object, final OutputStream os) throws IOException {
@@ -125,7 +121,7 @@ public class FileUtils {
 	/**
 	 * 创建绝对路径文件夹
 	 * 
-	 * @param fileName
+	 * @param dirName
 	 *            要创建的文件名
 	 * @return 创建得到的文件
 	 */
@@ -236,11 +232,7 @@ public class FileUtils {
 		if (!flag)
 			return false;
 		// 删除当前目录
-		if (dirFile.delete()) {
-			return true;
-		} else {
-			return false;
-		}
+        return dirFile.delete();
 	}
 
 	/**
@@ -325,7 +317,6 @@ public class FileUtils {
 							LogUtils.w(mcontext, node2.getNodeValue());
 						}
 					}
-				} else {
 				}
 			}
 		}
@@ -334,7 +325,6 @@ public class FileUtils {
 	/**
 	 * 解析xml
 	 * 
-	 * @param mcontext
 	 * @param file
 	 * @throws ParserConfigurationException
 	 * @throws IOException
@@ -343,8 +333,7 @@ public class FileUtils {
 	public Document XmlByDomj4(File file) throws ParserConfigurationException, SAXException, IOException {
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
-		Document document = db.parse(file);
-		return document;
+		return db.parse(file);
 	}
 
 	/**
@@ -415,8 +404,6 @@ public class FileUtils {
 	/**
 	 * 读取数据
 	 * 
-	 * @param instr
-	 * @param encodeStr
 	 * @return
 	 * @throws Exception
 	 */
@@ -429,7 +416,6 @@ public class FileUtils {
 	/**
 	 * 写入数据
 	 * 
-	 * @param instr
 	 * @return
 	 * @throws Exception
 	 */
@@ -727,13 +713,13 @@ public class FileUtils {
 		if (srcDir == null) {
 			throw new NullPointerException("Source must not be null");
 		}
-		if (srcDir.exists() && srcDir.isDirectory() == false) {
+		if (srcDir.exists() && !srcDir.isDirectory()) {
 			throw new IllegalArgumentException("Source '" + destDir + "' is not a directory");
 		}
 		if (destDir == null) {
 			throw new NullPointerException("Destination must not be null");
 		}
-		if (destDir.exists() && destDir.isDirectory() == false) {
+		if (destDir.exists() && !destDir.isDirectory()) {
 			throw new IllegalArgumentException("Destination '" + destDir + "' is not a directory");
 		}
 		copyDirectory(srcDir, new File(destDir, srcDir.getName()), true);
@@ -787,13 +773,13 @@ public class FileUtils {
 		if (srcDir == null) {
 			throw new NullPointerException("Source must not be null");
 		}
-		if (srcDir.exists() && srcDir.isDirectory() == false) {
+		if (srcDir.exists() && !srcDir.isDirectory()) {
 			throw new IllegalArgumentException("Source '" + destDir + "' is not a directory");
 		}
 		if (destDir == null) {
 			throw new NullPointerException("Destination must not be null");
 		}
-		if (destDir.exists() && destDir.isDirectory() == false) {
+		if (destDir.exists() && !srcDir.isDirectory()) {
 			throw new IllegalArgumentException("Destination '" + destDir + "' is not a directory");
 		}
 		if (srcDir.getCanonicalPath().equals(destDir.getCanonicalPath())) {
@@ -824,8 +810,6 @@ public class FileUtils {
 	 * @param destDir
 	 *            the validated destination directory, must not be
 	 *            <code>null</code>
-	 * @param filter
-	 *            the filter to apply, null means copy all directories and files
 	 * @param preserveFileDate
 	 *            whether to preserve the file date
 	 * @param exclusionList
@@ -843,7 +827,7 @@ public class FileUtils {
 			throw new IOException("Failed to list contents of " + srcDir);
 		}
 		if (destDir.exists()) {
-			if (destDir.isDirectory() == false) {
+			if (!srcDir.isDirectory()) {
 				throw new IOException("Destination '" + destDir + "' exists but is not a directory");
 			}
 		} else {
@@ -851,7 +835,7 @@ public class FileUtils {
 				throw new IOException("Destination '" + destDir + "' directory cannot be created");
 			}
 		}
-		if (destDir.canWrite() == false) {
+		if (!destDir.canWrite()) {
 			throw new IOException("Destination '" + destDir + "' cannot be written to");
 		}
 		for (File srcFile : srcFiles) {
@@ -947,7 +931,7 @@ public class FileUtils {
 			if (file.isDirectory()) {
 				throw new IOException("File '" + file + "' exists but is a directory");
 			}
-			if (file.canRead() == false) {
+			if (!file.canRead()) {
 				throw new IOException("File '" + file + "' cannot be read");
 			}
 		} else {

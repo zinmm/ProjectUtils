@@ -1,10 +1,10 @@
 package com.sunhz.projectutils.fileutils;
 
-import java.io.File;
-import java.io.IOException;
-
 import android.os.Environment;
 import android.os.StatFs;
+
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Sd卡使用
@@ -29,10 +29,7 @@ public class SDCardUtils {
 	 * @return
 	 */
 	public boolean checkSDCard() {
-		if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED))
-			return true;
-		else
-			return false;
+		return Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
 	}
 
 	/**
@@ -42,10 +39,7 @@ public class SDCardUtils {
 	 */
 	public boolean isSdCardWrittenable() {
 
-		if (android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED)) {
-			return true;
-		}
-		return false;
+        return android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED);
 	}
 
 	/**
@@ -59,8 +53,7 @@ public class SDCardUtils {
 		storageDirectory = Environment.getExternalStorageDirectory().toString();
 		try {
 			StatFs stat = new StatFs(storageDirectory);
-			long avaliableSize = ((long) stat.getAvailableBlocks() * (long) stat.getBlockSize());
-			return avaliableSize;
+            return ((long) stat.getAvailableBlocks() * (long) stat.getBlockSize()); // avaliableSize
 		} catch (RuntimeException ex) {
 			return 0;
 		}
@@ -83,10 +76,7 @@ public class SDCardUtils {
 			throw new Exception("sd卡不能执行写入操作");
 		}
 		long avaliableSize = getAvailableStorage();
-		if (Float.compare(avaliableSize, currentFileSize) == 1) {
-			return true;
-		}
-		return false;
+		return Float.compare(avaliableSize, currentFileSize) == 1;
 	}
 
 	/**
@@ -105,7 +95,7 @@ public class SDCardUtils {
 	/**
 	 * 在SD卡上创建目录
 	 * 
-	 * @param dirName
+	 * @param absoluteDirName
 	 *            要创建的目录名
 	 * @return 创建得到的目录
 	 */

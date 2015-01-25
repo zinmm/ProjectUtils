@@ -1,4 +1,4 @@
-package com.sunhz.projectutils.encryption;
+package com.sunhz.projectutils.encryptionutils;
 
 public final class Base64Utils {
 
@@ -61,9 +61,6 @@ public final class Base64Utils {
 
 	/**
 	 * 编码
-	 * 
-	 * @param binaryData
-	 * @return
 	 */
 	public static String encode(byte[] binaryData) {
 
@@ -134,8 +131,6 @@ public final class Base64Utils {
 
 	/**
 	 * 解码
-	 * 
-	 * @param decode
 	 * @return
 	 */
 	public static byte[] decode(String decode) {
