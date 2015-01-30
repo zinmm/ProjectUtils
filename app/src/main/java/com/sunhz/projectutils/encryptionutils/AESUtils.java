@@ -11,44 +11,46 @@ public class AESUtils {
 
     private static final String AES = "AES";
 
+    /**
+     * 解密
+     * 
+     * @param sSrc 待解密内容
+     * @return 解密后的内容
+     * @throws Exception
+     */
     public static String Decrypt(String sSrc) throws Exception {
-        try {
-            // 判断Key是否正确
-            if (TextUtils.isEmpty(AppController.AESUtil_CLIENT_KEY)) {
-                throw new NullPointerException("AppController.AESUtil_CLIENT_KEY 不能为空");
-            }
-            // 判断Key是否为16位
-            if (AppController.AESUtil_CLIENT_KEY.length() != 16) {
-                System.out.print("Key长度不是16位");
-                return null;
-            }
-            byte[] raw = AppController.AESUtil_CLIENT_KEY.getBytes("ASCII");
-            SecretKeySpec skeySpec = new SecretKeySpec(raw, "AES");
-            Cipher cipher = Cipher.getInstance(AES);
-            cipher.init(Cipher.DECRYPT_MODE, skeySpec);
-            byte[] encrypted1 = hex2byte(sSrc);
-            try {
-                byte[] original = cipher.doFinal(encrypted1);
-                return new String(original);
-            } catch (Exception e) {
-                System.out.println(e.toString());
-                return null;
-            }
-        } catch (Exception ex) {
-            System.out.println(ex.toString());
-            return null;
-        }
-    }
-
-    // 判断Key是否正确
-    public static String Encrypt(String sSrc) throws Exception {
+        // 判断Key是否正确
         if (TextUtils.isEmpty(AppController.AESUtil_CLIENT_KEY)) {
             throw new NullPointerException("AppController.AESUtil_CLIENT_KEY 不能为空");
         }
         // 判断Key是否为16位
         if (AppController.AESUtil_CLIENT_KEY.length() != 16) {
-            System.out.print("Key长度不是16位");
-            return null;
+            throw new IllegalArgumentException("Key长度不是16位");
+        }
+        byte[] raw = AppController.AESUtil_CLIENT_KEY.getBytes("ASCII");
+        SecretKeySpec skeySpec = new SecretKeySpec(raw, "AES");
+        Cipher cipher = Cipher.getInstance(AES);
+        cipher.init(Cipher.DECRYPT_MODE, skeySpec);
+        byte[] encrypted1 = hex2byte(sSrc);
+        byte[] original = cipher.doFinal(encrypted1);
+        return new String(original);
+    }
+
+    /**
+     * 加密
+     * 
+     * @param sSrc 待加密内容
+     * @return 加密后的结果
+     * @throws Exception
+     */
+    public static String Encrypt(String sSrc) throws Exception {
+        // 判断Key是否正确
+        if (TextUtils.isEmpty(AppController.AESUtil_CLIENT_KEY)) {
+            throw new NullPointerException("AppController.AESUtil_CLIENT_KEY 不能为空");
+        }
+        // 判断Key是否为16位
+        if (AppController.AESUtil_CLIENT_KEY.length() != 16) {
+            throw new IllegalArgumentException("Key长度不是16位");
         }
         byte[] raw = AppController.AESUtil_CLIENT_KEY.getBytes("ASCII");
         SecretKeySpec skeySpec = new SecretKeySpec(raw, AES);
