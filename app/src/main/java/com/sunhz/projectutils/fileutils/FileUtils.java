@@ -50,7 +50,7 @@ public class FileUtils {
 	 * @param object
 	 * @param path
 	 * @throws IOException
-	 * @throws FileNotFoundException 
+	 * @throws FileNotFoundException
 	 */
 	public static void writeObject(final Serializable object, final String path) throws FileNotFoundException, IOException {
 		writeObject(object, new FileOutputStream(path));
