@@ -8,7 +8,7 @@ public class MD5EncryptionUtils {
 
     /**
      * 加密
-     * 
+     *
      * @param string 待加密内容
      * @return
      */

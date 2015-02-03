@@ -57,7 +57,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         if (ex == null) {
             return true;
         }
-        LogUtils.writeExceptionLog(mContext,ex);
+        LogUtils.writeExceptionLog(mContext, ex);
         new Thread() {
             @Override
             public void run() {

@@ -26,7 +26,7 @@ public class CheckInternetUtils {
 
     /**
      * 是否飞行模式
-     * 
+     *
      * @return true:飞行模式,flase:非飞行模式
      */
     public boolean isAirplaneModeOn() {
@@ -36,8 +36,8 @@ public class CheckInternetUtils {
 
     /**
      * 检测是否已经连接网络。
-     * 
-     * @return 当连上网络时返回true,否则返回false。
+     *
+     * @return 当连上网络时返回true, 否则返回false。
      */
     public boolean checkInternet() {
         ConnectivityManager connectivityManager = (ConnectivityManager) mContext
@@ -51,6 +51,7 @@ public class CheckInternetUtils {
 
     /**
      * 判断当前网络状态
+     *
      * @return NetAuthorityEnum 状态
      */
     public NetAuthorityEnum JudgeCurrentNetState() {

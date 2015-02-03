@@ -24,9 +24,9 @@ public class DensityUtils {
 
     /**
      * 将px值转换为sp值，保证文字大小不变
-     * 
+     *
      * @param mContext
-     * @param pxValue （DisplayMetrics类中属性scaledDensity）
+     * @param pxValue  （DisplayMetrics类中属性scaledDensity）
      */
     public static int px2sp(Context mContext, float pxValue) {
         float fontScale = mContext.getResources().getDisplayMetrics().scaledDensity;
@@ -37,7 +37,7 @@ public class DensityUtils {
      * 将sp值转换为px值，保证文字大小不变
      *
      * @param mContext
-     * @param spValue （DisplayMetrics类中属性scaledDensity）
+     * @param spValue  （DisplayMetrics类中属性scaledDensity）
      */
     public static int sp2px(Context mContext, float spValue) {
         float fontScale = mContext.getResources().getDisplayMetrics().scaledDensity;
@@ -46,7 +46,7 @@ public class DensityUtils {
 
     /**
      * 获取屏幕宽度和高度，单位为px
-     * 
+     *
      * @param mContext
      * @return
      */
@@ -60,7 +60,7 @@ public class DensityUtils {
 
     /**
      * 获取屏幕长宽比
-     * 
+     *
      * @param mContext
      * @return
      */

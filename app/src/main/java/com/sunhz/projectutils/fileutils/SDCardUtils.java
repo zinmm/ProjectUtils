@@ -26,7 +26,7 @@ public class SDCardUtils {
 
     /**
      * 返回sd卡的路径
-     * 
+     *
      * @return sd卡路径
      */
     public String getSDCardPath() {
@@ -35,7 +35,7 @@ public class SDCardUtils {
 
     /**
      * 检测Sd卡是否存在
-     * 
+     *
      * @return true:存在,flase:不存在
      */
     public boolean checkSDCard() {
@@ -44,7 +44,7 @@ public class SDCardUtils {
 
     /**
      * 检查sd卡是否可写
-     * 
+     *
      * @return true:可写入,false:不可写入
      */
     public boolean isSdCardWrittenable() {
@@ -54,7 +54,7 @@ public class SDCardUtils {
 
     /**
      * 获取sd卡的可用存储大小 剩下的空间
-     * 
+     *
      * @return sd卡剩余空间
      */
     public long getAvailableStorage() {
@@ -70,7 +70,7 @@ public class SDCardUtils {
 
     /**
      * 判断当前的sd空间是否可保存该文件
-     * 
+     *
      * @param currentFileSize
      * @return
      * @throws Exception
@@ -90,7 +90,7 @@ public class SDCardUtils {
 
     /**
      * 在SD卡上创建文件
-     * 
+     *
      * @param fileName 要创建的文件名
      * @return 创建得到的文件
      */
@@ -102,7 +102,7 @@ public class SDCardUtils {
 
     /**
      * 在SD卡上创建目录
-     * 
+     *
      * @param absoluteDirName 要创建的目录名
      * @return 创建得到的目录
      */

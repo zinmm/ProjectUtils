@@ -13,15 +13,16 @@ import java.util.List;
 public class BaseApplication extends Application {
     private Context mContext;
     public static List<Activity> actList;
-	@Override
-	public void onCreate() {
-		super.onCreate();
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
         this.mContext = mContext;
-        actList = new ArrayList<Activity>() ;
+        actList = new ArrayList<Activity>();
 
 
-        if (!DebugController.isDebug){
+        if (!DebugController.isDebug) {
             CrashHandler.getInstance().init(mContext);
         }
-	}
+    }
 }

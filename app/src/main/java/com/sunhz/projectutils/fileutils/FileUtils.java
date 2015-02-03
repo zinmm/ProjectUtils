@@ -53,8 +53,8 @@ public class FileUtils {
 
     /**
      * 写入对象到指定路径
-     * 
-     * @param obj 待写入对象
+     *
+     * @param obj      待写入对象
      * @param fileName 文件名
      * @param filePath 文件路径
      * @throws IOException
@@ -75,7 +75,7 @@ public class FileUtils {
 
     /**
      * 从指定路径读取对象
-     * 
+     *
      * @param fileName 文件名
      * @param filePath 文件路径
      * @return 读取出的对象
@@ -99,7 +99,7 @@ public class FileUtils {
 
     /**
      * 获取文件扩展名
-     * 
+     *
      * @param filePath 文件的路径
      * @return 文件拓展名
      */
@@ -109,7 +109,7 @@ public class FileUtils {
 
     /**
      * 判断某文件是否存在
-     * 
+     *
      * @param absolutePackagePath 文件的绝对路径
      * @return true:存在,false:不存在
      */
@@ -119,7 +119,7 @@ public class FileUtils {
 
     /**
      * 判断当前路径下是否是一个文件夹
-     * 
+     *
      * @param file 路径
      * @return true:是文件夹,false:不是文件夹
      */
@@ -129,7 +129,7 @@ public class FileUtils {
 
     /**
      * 判断当前路径下是否是一个文件
-     * 
+     *
      * @param file 路径
      * @return true:是文件,false:不是文件
      */
@@ -139,7 +139,7 @@ public class FileUtils {
 
     /**
      * 删除文件,删除目录,删除目录下所有文件
-     * 
+     *
      * @param path 将要删除的文件目录
      * @return true:删除成功,false:删除失败
      */
@@ -171,7 +171,7 @@ public class FileUtils {
 
     /**
      * 根据inputStream生成String 并关闭inputStream
-     * 
+     *
      * @param inputStream
      * @return
      * @throws Exception
@@ -213,8 +213,8 @@ public class FileUtils {
 
     /**
      * 根据指定编码，读取数据
-     * 
-     * @param is 字符流
+     *
+     * @param is        字符流
      * @param encodeStr 字符编码
      * @return 内容
      * @throws Exception
@@ -238,7 +238,7 @@ public class FileUtils {
 
     /**
      * 写入文本
-     * 
+     *
      * @param file
      * @param writeData
      * @throws IOException
@@ -259,7 +259,7 @@ public class FileUtils {
     /**
      * 将raw中的初始文件保存到指定目录下
      *
-     * @param rawId raw中文件的id
+     * @param rawId        raw中文件的id
      * @param fileSavePath 转储的文件路径文件名称
      * @return true:保存成功
      * @throws IOException
@@ -277,9 +277,9 @@ public class FileUtils {
 
     /**
      * 将Assets中的初始文件保存到指定目录下
-     * 
+     *
      * @param assetsFileName Assets中文件的名称
-     * @param fileSavePath 转储的文件路径文件名称
+     * @param fileSavePath   转储的文件路径文件名称
      * @return true:保存成功
      * @throws Exception
      */
@@ -300,7 +300,7 @@ public class FileUtils {
 
     /**
      * 将数据流保存到指定文件
-     * 
+     *
      * @param inputStream
      * @param fileSavePath
      * @throws IOException
@@ -388,7 +388,7 @@ public class FileUtils {
 
     /**
      * 返回文件夹下所有文件的绝对路径
-     * 
+     *
      * @param strPath 目标文件夹
      * @return
      */
@@ -432,7 +432,7 @@ public class FileUtils {
 
     /**
      * 将文件创建为一个流
-     * 
+     *
      * @param file 文件路径
      * @return 流对象
      * @throws IOException
@@ -470,8 +470,8 @@ public class FileUtils {
 
     /**
      * 按照指定编码,将文本文件中行的集合返回
-     * 
-     * @param file 文本文件路径
+     *
+     * @param file     文本文件路径
      * @param encoding 编码
      * @return 文本文件中行的集合
      * @throws IOException
@@ -488,7 +488,7 @@ public class FileUtils {
 
     /**
      * 将文本文件的流中的内容以行集合的方式返回
-     * 
+     *
      * @param input 文本文件的流
      * @return 内容的行集合
      * @throws IOException
@@ -499,8 +499,8 @@ public class FileUtils {
 
     /**
      * 使用指定的编码,将文本文件的流中的内容以行集合的方式返回
-     * 
-     * @param input 文本文件的流
+     *
+     * @param input    文本文件的流
      * @param encoding 编码
      * @return 内容的行集合
      * @throws IOException
@@ -511,7 +511,7 @@ public class FileUtils {
 
     /**
      * 文本文件的流中的内容以行集合的方式返回
-     * 
+     *
      * @param input 文本文件的流
      * @return 内容的行集合
      * @throws IOException
@@ -537,7 +537,7 @@ public class FileUtils {
      * 取得文件大小
      *
      * @param file 文件路径
-     * @return 若文件不存在,返回-1.若文件存在,则正常返回文件大小.
+     * @return 若文件不存在, 返回-1.若文件存在,则正常返回文件大小.
      * @throws Exception
      */
     public long getFileSizes(File file) throws IOException {
@@ -556,11 +556,10 @@ public class FileUtils {
 
     /**
      * 获取文件夹大小
-     * 
+     *
      * @param file 文件夹路径
-     * @return 
-     *         若文件夹不存在,则返回-1.若文件夹存在,但文件夹内无文件,则返回0.若文件夹存在,并文件夹内有文件,则正常返回文件夹大小
-     *         .
+     * @return 若文件夹不存在, 则返回-1.若文件夹存在,但文件夹内无文件,则返回0.若文件夹存在,并文件夹内有文件,则正常返回文件夹大小
+     * .
      * @throws Exception
      */
     public long getDirectorySize(File file) throws Exception// 取得文件夹大小
@@ -606,7 +605,7 @@ public class FileUtils {
 
     /**
      * 取文件夹下文件个数,若文件夹下还有文件夹,不包含文件夹个数
-     * 
+     *
      * @param file 文件夹路径
      * @return 文件个数(不包含文件夹)
      */
@@ -625,10 +624,10 @@ public class FileUtils {
 
     /**
      * 对文件夹下所有文件的后缀名进行修改
-     * 
+     *
      * @param path 文件夹路径
      * @param from 原始后缀名(包含.)
-     * @param to 修改后的后缀名(包含.)
+     * @param to   修改后的后缀名(包含.)
      */
     public void reNameAllFileInDirectory(String path, String from, String to) {
         File f = new File(path);
@@ -649,7 +648,7 @@ public class FileUtils {
 
     /**
      * 将流转换为byte数组
-     * 
+     *
      * @param inputStream 数据流
      * @return byte数组
      * @throws IOException
@@ -672,7 +671,7 @@ public class FileUtils {
 
     /**
      * 将byte数组转换为InputStream
-     * 
+     *
      * @param byteArray 待转换byte数组
      * @return InputStream
      */

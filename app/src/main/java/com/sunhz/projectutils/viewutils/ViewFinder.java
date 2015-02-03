@@ -13,11 +13,10 @@ import android.widget.TextView;
 
 
 /**
- *
  * author : stormzhang
- *
+ * <p/>
  * code Url : https://gist.github.com/stormzhang/37dc0b94be61eb6c015c
- *
+ * <p/>
  * Helper for finding and tweaking a view's children
  */
 public class ViewFinder {
