@@ -8,6 +8,7 @@ public class BaseActivity extends FragmentActivity {
 	@Override
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
+        BaseApplication.actList.add(this);
 	}
 
 	@Override
@@ -19,4 +20,10 @@ public class BaseActivity extends FragmentActivity {
 	public void onPause() {
 		super.onPause();
 	}
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        BaseApplication.actList.remove(this);
+    }
 }
