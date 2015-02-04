@@ -1,3 +1,10 @@
+/**
+ * GSON (https://code.google.com/p/google-gson/)
+ *
+ * @link https://code.google.com/p/google-gson/
+ * @license http://www.apache.org/licenses/LICENSE-2.0
+ * @package com.google.gson
+ */
 package com.sunhz.projectutils.jsonutils;
 
 import com.google.gson.Gson;
