@@ -6,11 +6,11 @@
 
 其中使用了一些其他的开源项目:
 
-Gson:https://code.google.com/p/google-gson/
+	Gson:https://code.google.com/p/google-gson/
 
-ViewFinder:https://gist.github.com/stormzhang/37dc0b94be61eb6c015c
+	ViewFinder:https://gist.github.com/stormzhang/37dc0b94be61eb6c015c
 
-ACache:https://github.com/yangfuhai/ASimpleCache/blob/master/source/src/org/afinal/simplecache/ACache.java
+	ACache:https://github.com/yangfuhai/ASimpleCache/blob/master/source/src/org/afinal/simplecache/ACache.java
 
 本项目中引用的jar包:
 
