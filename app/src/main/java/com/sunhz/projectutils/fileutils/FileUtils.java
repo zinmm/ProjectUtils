@@ -44,7 +44,7 @@ public class FileUtils {
         this.mContext = mContext;
     }
 
-    public static FileUtils getInstance(Context mContext) {
+    public synchronized static FileUtils getInstance(Context mContext) {
         if (fileUtils == null) {
             fileUtils = new FileUtils(mContext);
         }

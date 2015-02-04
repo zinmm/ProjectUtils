@@ -17,7 +17,7 @@ public class JsonUtils {
 
     }
 
-    private static JsonUtils getInstance() {
+    private synchronized static JsonUtils getInstance() {
         if (jsonUtils == null || gson == null) {
             jsonUtils = new JsonUtils();
             gson = new Gson();

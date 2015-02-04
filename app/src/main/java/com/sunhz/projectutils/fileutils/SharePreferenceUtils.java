@@ -12,7 +12,7 @@ public class SharePreferenceUtils {
         this.mContext = mContext;
     }
 
-    public static SharePreferenceUtils getInstance(Context mContext) {
+    public synchronized static SharePreferenceUtils getInstance(Context mContext) {
         if (sharePreferenceUtils != null) {
             sharePreferenceUtils = new SharePreferenceUtils(mContext);
         }
