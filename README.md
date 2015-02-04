@@ -5,6 +5,7 @@
 是为了方便Android开发者,在使用一些日常utils的时候,方便寻找和使用.
 
 其中使用了一些其他的开源项目:
+
 Gson:https://code.google.com/p/google-gson/
 
 ViewFinder:https://gist.github.com/stormzhang/37dc0b94be61eb6c015c
