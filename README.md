@@ -13,6 +13,9 @@ ViewFinder:https://gist.github.com/stormzhang/37dc0b94be61eb6c015c
 ACache:https://github.com/yangfuhai/ASimpleCache/blob/master/source/src/org/afinal/simplecache/ACache.java
 
 本项目中引用的jar包:
+
 	GSON-2.3.1.jar
+
 	Android-support-v4.jar
+
 所以若用到,上述jar包便不用再次添加.
