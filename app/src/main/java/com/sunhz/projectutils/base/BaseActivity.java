@@ -6,8 +6,8 @@ import android.support.v4.app.FragmentActivity;
 public class BaseActivity extends FragmentActivity {
 
     @Override
-    protected void onCreate(Bundle arg0) {
-        super.onCreate(arg0);
+    protected void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
         BaseApplication.actList.add(this);
     }
 
