@@ -36,7 +36,7 @@ public class LogUtils {
     /**
      * 保存错误信息到文件中
      */
-    public static void writeExceptionLog(Context context, Throwable ex) {
+    public static void writeExceptionLog(Context mContext, Throwable ex) {
         Writer info = new StringWriter();
         PrintWriter printWriter = new PrintWriter(info);
         ex.printStackTrace(printWriter);
@@ -52,7 +52,7 @@ public class LogUtils {
         try {
             long timestamp = System.currentTimeMillis();
             String fileName = "ex-" + timestamp;
-            String fileFolderPath = Environment.getExternalStorageDirectory() + File.separator + context.getPackageName() + File.separator + "log";
+            String fileFolderPath = Environment.getExternalStorageDirectory() + File.separator + mContext.getPackageName() + File.separator + "log";
             if (!new File(fileFolderPath).exists()) {
                 new File(fileFolderPath).mkdirs();
             }

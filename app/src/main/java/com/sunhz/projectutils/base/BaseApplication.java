@@ -8,21 +8,43 @@ import com.sunhz.projectutils.CrashHandler;
 import com.sunhz.projectutils.DebugController;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class BaseApplication extends Application {
+
     private Context mContext;
-    public static List<Activity> actList;
+
+    private static BaseApplication baseApplication;
+
+    private ArrayList<Activity> actList = new ArrayList<Activity>();
+
+    public synchronized static BaseApplication getInstance() {
+        if (baseApplication == null) {
+            baseApplication = new BaseApplication();
+        }
+        return baseApplication;
+    }
+
 
     @Override
     public void onCreate() {
         super.onCreate();
-        this.mContext = mContext;
-        actList = new ArrayList<Activity>();
+        this.mContext = this;
 
 
         if (!DebugController.isDebug) {
-            CrashHandler.getInstance().init(mContext);
+            CrashHandler.getInstance(mContext).init();
         }
+    }
+
+    public void addActivity(Activity activity) {
+        actList.add(activity);
+    }
+
+    public void removeActivity(Activity activity) {
+        actList.remove(activity);
+    }
+
+    public ArrayList<Activity> getAllActivity() {
+        return actList;
     }
 }

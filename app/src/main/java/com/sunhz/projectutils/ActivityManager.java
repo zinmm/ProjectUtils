@@ -5,6 +5,8 @@ import android.content.Context;
 
 import com.sunhz.projectutils.base.BaseApplication;
 
+import java.util.List;
+
 /**
  * activity 管理器
  * Created by Spencer on 15/2/3.
@@ -18,17 +20,13 @@ public class ActivityManager {
      * @param mContext
      */
     public static void closeAllActivity(Context mContext) {
-        int len = BaseApplication.actList.size();
-        for (int i = 0; i < len; i++) {
-            Activity act = BaseApplication.actList.get(i);
-            if (act != null) {
-                act.finish();
+        List<Activity> activityList = BaseApplication.getInstance().getAllActivity();
+        for (int i = 0; i < activityList.size(); i++) {
+            Activity activity = activityList.get(i);
+            if (activity != null) {
+                activity.finish();
             }
         }
-    }
-
-    public static void closeActivity(Activity activity) {
-        BaseApplication.actList.remove(activity);
     }
 
 }

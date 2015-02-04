@@ -54,7 +54,7 @@ public class PackageUtils {
         mContext.startActivity(intent);
     }
 
-    public void getAllPackageName(){
+    public void getAllPackageName() {
 
     }
 
