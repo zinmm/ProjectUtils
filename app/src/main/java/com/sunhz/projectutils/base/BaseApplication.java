@@ -4,9 +4,6 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 
-import com.sunhz.projectutils.CrashHandler;
-import com.sunhz.projectutils.DebugController;
-
 import java.util.ArrayList;
 
 public class BaseApplication extends Application {
@@ -31,9 +28,9 @@ public class BaseApplication extends Application {
         this.mContext = this;
 
 
-        if (!DebugController.isDebug) {
-            CrashHandler.getInstance(mContext).init();
-        }
+//        if (!DebugController.isDebug) {
+//            CrashHandler.getInstance(mContext).init();
+//        }
     }
 
     public void addActivity(Activity activity) {
