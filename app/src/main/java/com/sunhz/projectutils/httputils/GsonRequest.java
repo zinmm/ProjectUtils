@@ -1,3 +1,10 @@
+/**
+ * GsonRequest ficusk
+ *
+ * @author ficusk  Last active on 30 Apr 2013
+ * @link https://gist.github.com/ficusk/5474673
+ * @license https://github.com/yangfuhai/ASimpleCache/blob/master/LICENSE
+ */
 package com.sunhz.projectutils.httputils;
 
 import com.android.volley.AuthFailureError;
@@ -11,7 +18,6 @@ import com.sunhz.projectutils.jsonutils.JsonUtils;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
-
 
 
 /**
