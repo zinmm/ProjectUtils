@@ -1,4 +1,4 @@
-package com.sunhz.projectutils.netutils;
+package com.sunhz.projectutils.netcheckutils;
 
 public enum NetAuthorityEnum {
     unNetConnect, // 无网连接

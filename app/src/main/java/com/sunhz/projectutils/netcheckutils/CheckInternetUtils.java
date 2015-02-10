@@ -1,4 +1,4 @@
-package com.sunhz.projectutils.netutils;
+package com.sunhz.projectutils.netcheckutils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
