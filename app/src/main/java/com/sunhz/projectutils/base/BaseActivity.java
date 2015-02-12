@@ -41,5 +41,6 @@ public class BaseActivity extends FragmentActivity {
     protected void onDestroy() {
         super.onDestroy();
         BaseApplication.getInstance().removeActivity(this);
+        volleyQueue.cancelAll(mContext);
     }
 }

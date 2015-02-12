@@ -19,4 +19,6 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile files('libs/libs/android-support-v4.jar')
     compile files('libs/gson-2.3.1.jar')
+    compile files('libs/volley.jar')
+    compile files('libs/picasso-2.5.0.jar')
 }
