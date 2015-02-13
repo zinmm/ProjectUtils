@@ -89,8 +89,7 @@ public class FileUtils {
         try {
             fis = new FileInputStream(new File(filePath, fileName));
             ois = new ObjectInputStream(fis);
-            Object obj = ois.readObject();
-            return obj;
+            return ois.readObject();
         } finally {
             if (ois != null) ois.close();
             if (fis != null) fis.close();
