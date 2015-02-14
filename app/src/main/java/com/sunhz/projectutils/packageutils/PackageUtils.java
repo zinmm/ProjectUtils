@@ -55,7 +55,11 @@ public class PackageUtils {
     }
 
     public void getAllPackageName() {
+        //TODO:获取手机全部应用程序报名
+    }
 
+    public String getMyApplicationPackageName(){
+        return mContext.getPackageName();
     }
 
 }

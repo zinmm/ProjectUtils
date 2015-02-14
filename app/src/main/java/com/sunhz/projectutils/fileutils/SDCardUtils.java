@@ -95,7 +95,7 @@ public class SDCardUtils {
      * @return 创建得到的文件
      */
     public File createSDFile(String fileName) throws IOException {
-        File file = new File(new SDCardUtils().getSDCardPath() + File.separator + fileName);
+        File file = new File(getSDCardPath() + File.separator + fileName);
         file.createNewFile();
         return file;
     }
@@ -107,7 +107,7 @@ public class SDCardUtils {
      * @return 创建得到的目录
      */
     public File createAbsoluteSDDir(String absoluteDirName) {
-        File dir = new File(absoluteDirName);
+        File dir = new File(getSDCardPath(),absoluteDirName);
         dir.mkdir();
         return dir;
     }

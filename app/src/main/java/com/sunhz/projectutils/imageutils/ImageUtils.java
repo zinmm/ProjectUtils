@@ -14,10 +14,12 @@ import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 
+import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -173,6 +175,32 @@ public class ImageUtils {
         return bitmapToInputStream(drawableToBitmap(drawable));
     }
 
+    /**
+     * bitmap to file
+     *
+     * @param bitmap bitmap
+     * @param file   文件存储路径
+     * @throws IOException
+     */
+    public static void bitmapToFile(Bitmap bitmap, File file) throws IOException {
+        if (!file.exists()){
+            file.createNewFile();
+        }
+        FileOutputStream fileOutputStream = null;
+        BufferedOutputStream bufferedOutputStream = null;
+        try {
+            fileOutputStream = new FileOutputStream(file);
+            bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bufferedOutputStream);
+        } finally {
+            if (bufferedOutputStream != null)
+                bufferedOutputStream.close();
+            if (fileOutputStream != null)
+                fileOutputStream.close();
+        }
+
+
+    }
 
     /**
      * drawble 转换成 圆角

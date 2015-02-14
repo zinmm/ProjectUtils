@@ -21,6 +21,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.io.Reader;
 import java.io.Serializable;
 import java.text.DecimalFormat;
@@ -233,6 +234,36 @@ public class FileUtils {
             if (is != null) is.close();
             if (out != null) out.close();
         }
+    }
+
+    /**
+     * 根据默认编码,读取文本文件
+     * @param file
+     * @return str
+     * @throws IOException
+     */
+    public String read(File file) throws IOException {
+        InputStreamReader inputReader = null;
+        BufferedReader bufferReader = null;
+        OutputStream outputStream = null;
+        StringBuffer strBuffer = new StringBuffer();
+        try {
+            InputStream inputStream = new FileInputStream(file);
+            inputReader = new InputStreamReader(inputStream);
+            bufferReader = new BufferedReader(inputReader);
+
+            // 读取一行
+            String line = null;
+
+            while ((line = bufferReader.readLine()) != null) {
+                strBuffer.append(line);
+            }
+        } finally {
+            if (inputReader != null) inputReader.close();
+            if (bufferReader != null) bufferReader.close();
+            if (outputStream != null) outputStream.close();
+        }
+        return strBuffer.toString();
     }
 
     /**
@@ -677,5 +708,15 @@ public class FileUtils {
     public InputStream byteArrayToInputStream(byte[] byteArray) {
         return new ByteArrayInputStream(byteArray);
     }
+
+    /**
+     * 获取文件的最后修改时间
+     *
+     * @return long
+     */
+    public long getFileLastModifiedTime(File file) {
+        return file.lastModified();
+    }
+
 
 }
